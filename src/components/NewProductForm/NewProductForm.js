@@ -35,27 +35,10 @@ function addProductDetails(product) {
 
 //eslint-disable-next-line react/prefer-stateless-function
 class NewProductForm extends Component {
-  constructor(props){
-    super(props),
-      this.state={
-        submitted: false,
-      };
-
-      this.setSubmitted = this.setSubmitted.bind(this);
-  }
-
-  setSubmitted() {
-    setTimeout(() => {
-      this.setState({
-        submitted: true,
-      });
-    }, 500);
-  }
 
    render() {
-    const { submitted } = this.state;
-    const { saveNewProduct } = this.props;
-    
+  //   const { submitted } = this.state;
+     const { saveNewProduct } = this.props;
 
     return (
       <>
@@ -76,7 +59,7 @@ class NewProductForm extends Component {
             const newProduct = addProductDetails(values);
             saveNewProduct(newProduct);
             setSubmitting(true);
-            this.setSubmitted();
+            // this.setSubmitted();
           }}
         >
           {({
@@ -196,7 +179,7 @@ class NewProductForm extends Component {
             </form>
           )}
         </Formik>
-        { submitted && <Redirect to="/" /> }
+        {/* {submitted && <Redirect to="/" />} */}
       </>
     );
   }
